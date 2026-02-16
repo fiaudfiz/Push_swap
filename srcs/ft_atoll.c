@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_atoll(const char *str, int *error)
 {
