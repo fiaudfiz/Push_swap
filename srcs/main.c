@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../libft/includes/libft.h"
 
 
 int main(int ac, char **av)

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../libft/includes/libft.h"
 
 int check_double(t_stack *stack, int nb)
 {

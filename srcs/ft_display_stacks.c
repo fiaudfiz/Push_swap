@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../libft/includes/libft.h"
 
 void    ft_display_stacks(t_stack *stack_a, t_stack *stack_b)
 {

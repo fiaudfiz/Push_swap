@@ -12,6 +12,7 @@
 
 
 #include "push_swap.h"
+#include "../libft/includes/libft.h"
 
 int	ft_atoll(const char *str, int *error)
 {
