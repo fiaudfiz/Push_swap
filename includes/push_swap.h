@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:13:27 by miouali           #+#    #+#             */
-/*   Updated: 2026/01/16 13:32:17 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/19 19:01:13 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ typedef struct	s_stack
 {
 	long			nbr;
 	long			index;
+	int				pos;
+	int				cost_a;
+	int				cost_b;
+	int				above_median;
+	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
