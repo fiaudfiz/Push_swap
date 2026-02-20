@@ -44,3 +44,239 @@ void	set_position(t_stack *stack)
 
 	}
 }
+
+void	set_target_a_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+	long	size_stack_a = size_stack(stack_a);
+	long	size_stack_b = size_stack(stack_b);
+	long	i = 0;
+	long	j = 0;
+	t_stack *temp_a = stack_a;
+	t_stack	*temp_b = stack_b;
+	long	best_match_index = LONG_MIN;
+	t_stack	*target_node;
+
+	while ( i < size_stack_a)
+	{
+		j = 0;
+		temp_b = stack_b;
+		while (j < size_stack_b)
+		{
+			if (temp_b->index < temp_a->index && temp_b->index > best_match_index)
+			{
+				target_node = temp_b;
+				best_match_index = temp_b->index;
+			}
+			j++;
+			temp_b = temp_b -> next;
+		}
+		if (best_match_index == LONG_MIN)
+			temp_a->target_node = find_max_stack(stack_b);
+		else
+			temp_a->target_node = target_node;
+		i++;
+		temp_a = temp_a->next;
+	}
+}
+
+void	set_cost(t_stack *stack_a, t_stack *stack_b)
+{
+	int	size_stack_a = size_stack(stack_a);
+	int	size_stack_b = size_stack(stack_b);
+	int	i = 0;
+	t_stack *temp_a = stack_a;
+	t_stack *temp_b = stack_b;
+
+	while (i < size_stack_a)
+	{
+		if (temp_a->above_median  = 1)
+			temp_a->cost_a = temp_a->pos;
+		else
+			temp_a->cost_a = -(size_stack_b - temp_a->target_node->pos);
+		if (temp_b->above_median == 1)
+			temp_a->cost_b = temp_a->target_node->pos;
+		else
+			temp_a->cost_b = -(size_stack_b - temp_a->target_node->pos);	
+		temp_a = temp_a->next;
+	}
+}
+
+int max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int max_abs(int a, int b)
+{
+	if (abs(a) > abs(b))
+		return (abs(a));
+	return (abs(b));
+}
+void	set_cheapest(t_stack *stack_a)
+{
+	int size_stack_a = size_stack(stack_a);
+	int	i = 0;
+	int	lowest_cost = 0;
+	t_stack	*temp_a;
+	int 	current_cost;
+	t_stack *best_node;
+
+	if (!stack_a)
+		return ;
+	lowest_cost = INT_MAX;
+	temp_a = stack_a;
+	while (i < size_stack_a)
+	{
+		if (temp_a->cost_a > 0 && temp_a->cost_b > 0)
+			current_cost = (temp_a->cost_a, temp_a->cost_b);
+		else if (temp_a->cost_a < 0 && temp_a->cost_b < 0)
+			current_cost = max_abs(temp_a->cost_a, temp_a->cost_b);
+		else
+			current_cost = abs(temp_a->cost_a) + abs(temp_a->cost_b);
+		if (current_cost < lowest_cost)
+		{
+
+			lowest_cost = current_cost;
+			best_node = temp_a;
+		}
+		temp_a = temp_a->next;
+		i++;
+	}
+	best_node->cheapest = 1;
+}
+
+void	rotate_both(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node)
+{
+	while (cheapest_node->cost_a > 0 && cheapest_node->cost_b > 0)
+	{
+		cheapest_node->cost_a--;
+		cheapest_node->cost_b--;
+		rr(stack_a, stack_b);
+	}
+	while (cheapest_node->cost_a < 0 && cheapest_node->cost_b < 0)
+	{
+		cheapest_node->cost_a++;
+		cheapest_node->cost_b++;
+		rrr(stack_a, stack_b);
+	}
+}
+
+void	finish_rotation(t_stack **stack_a, t_stack **stack_b,t_stack *cheapest_node)
+{
+	while (cheapest_node->cost_a != 0)
+    {
+        if (cheapest_node->cost_a > 0)
+        {
+            ra(stack_a);
+            cheapest_node->cost_a--;
+        }
+        else
+        {
+            rra(stack_a);
+            cheapest_node->cost_a++;
+        }
+    }
+    while (cheapest_node->cost_b != 0)
+    {
+        if (cheapest_node->cost_b > 0)
+        {
+            rb(stack_b);
+            cheapest_node->cost_b--;
+        }
+        else
+        {
+            rrb(stack_b);
+            cheapest_node->cost_b++;
+        }
+    }
+}
+
+t_stack *get_cheapest(t_stack *stack)
+{
+	while (stack)
+	{
+		if(stack->cheapest == 1)
+			return (stack);
+		stack = stack->next;
+	}
+	return(NULL);
+}
+
+void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *cheapest_node;
+
+	cheapest_node = get_cheapest(stack_a);
+	rotate_both(stack_a, stack_b, cheapest_node);
+	finish_rotation(stack_a, stack_b, cheapest_node);
+	pb(stack_a, stack_b);
+}
+
+void	set_target_b_to_a(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *temp_a;
+	t_stack *target_node;
+	int	best_index =INT_MAX;
+	long	size_stack_b = size_stack(stack_b);
+	int	i = 0;
+	
+	while (i < stack_a)
+	{
+		if (temp_a->index > (*stack_b)->index && temp_a->index < best_index)
+		{
+			target_node = temp_a;
+			best_index = temp_a->index;
+		}
+		i++;
+		temp_a = temp_a->next;
+	}
+	if (best_index == INT_MAX)
+		temp_a->target_node = find_min_stack(stack_a);
+	else
+		temp_a->target_node = target_node;
+}
+
+
+void	finish_rotation_only_a(t_stack **stack_a, t_stack *target_node)
+{
+	while ((*stack_a)->target_node != target_node)
+	{
+		if (target_node->above_median == 1)
+			ra(stack_a);
+		else
+			rra(stack_a);
+		stack_a = (*stack_a)->next;
+	}
+}
+
+void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
+{
+	finish_rotation_only_a(stack_a, (*stack_b)->target_node);
+	pa(stack_a, stack_b);
+}
+
+void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
+{
+	int 	len_a;
+
+	len_a = size_stack(stack_a);
+	if (len_a-- > 3 && !is_sorted(stack_a))
+		pb(stack_a, stack_b);
+	if (len_a-- > 3 && !is_sorted(stack_a))
+		pb (stack_a, stack_b);
+	while (len_a-- > 3 && !is_sorted(stack_a))
+	{
+		init_nodes_a(*stack_a, *stack_b);
+		move_a_to_b(stack_a, stack_b);
+	}
+	sort_three(stack_a);
+	while (*stack_b)
+	{
+		init_nodes_B(*stack_a, *stack_b);
+		move_b_to_a(stack_a, stack_b);
+	}
+	set_current_pos(stack_a);
+	min_on_top(stack_a);
+}

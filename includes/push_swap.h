@@ -36,6 +36,7 @@ typedef struct	s_stack
 	int				cost_a;
 	int				cost_b;
 	int				above_median;
+	int				cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
