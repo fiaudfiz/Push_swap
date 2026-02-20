@@ -27,6 +27,7 @@ int main(int ac, char **av)
 	i = parsing (av, &stack_a);
 	if (i == -1)
 		return (write (2, "ERROR\n" , 6));
+	init_index(&stack_a);
 	ft_display_stacks(stack_a, stack_b);
 	if (!is_sorted(stack_a))
 	{
@@ -37,6 +38,7 @@ int main(int ac, char **av)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
+	ft_display_stacks(stack_a, stack_b);
 	ft_free_all(&stack_a, NULL);
 	ft_free_all(&stack_b, NULL);
 	return (0);

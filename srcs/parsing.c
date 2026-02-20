@@ -15,13 +15,18 @@
 
 int check_double(t_stack *stack, int nb)
 {
+	t_stack *temp = stack;
+	int	i = 0;
+	int size_stack = stack_size(stack);
+
 	if (!stack)
 		return (0);
-	while (stack)
+	while (i < size_stack)
 	{
-		if (stack ->nbr == nb)
+		if (temp->nbr == nb)
 			return (-1);
-		stack = stack -> next;
+		temp = temp->next;
+		i++;
 	}
 	return (0);
 }

@@ -67,7 +67,7 @@ void	set_position(t_stack *stack)
 		return ;
 	size = stack_size(stack);
 	i = 0;
-	mid = size / 2;
+	mid = (size - 1) / 2;
 	tmp = stack;
 	while (i < size)
 	{
@@ -119,6 +119,7 @@ void	set_target_a_to_b(t_stack *stack_a, t_stack *stack_b)
 	{
 		j = 0;
 		temp_b = stack_b;
+		best_match_index = LONG_MIN;
 		while (j < size_stack_b)
 		{
 			if (temp_b->index < temp_a->index && temp_b->index > best_match_index)
@@ -144,19 +145,19 @@ void	set_cost(t_stack *stack_a, t_stack *stack_b)
 	int	size_stack_b = stack_size(stack_b);
 	int	i = 0;
 	t_stack *temp_a = stack_a;
-	t_stack *temp_b = stack_b;
 
 	while (i < size_stack_a)
 	{
 		if (temp_a->above_median  == 1)
 			temp_a->cost_a = temp_a->pos;
 		else
-			temp_a->cost_a = -(size_stack_b - temp_a->target_node->pos);
-		if (temp_b->above_median == 1)
+			temp_a->cost_a = -(size_stack_a - temp_a->pos);
+		if (temp_a->target_node->above_median == 1)
 			temp_a->cost_b = temp_a->target_node->pos;
 		else
 			temp_a->cost_b = -(size_stack_b - temp_a->target_node->pos);	
 		temp_a = temp_a->next;
+		i++;
 	}
 }
 
@@ -195,6 +196,7 @@ void	set_cheapest(t_stack *stack_a)
 	temp_a = stack_a;
 	while (i < size_stack_a)
 	{
+		temp_a->cheapest = 0;	
 		if (temp_a->cost_a > 0 && temp_a->cost_b > 0)
 			current_cost = max(temp_a->cost_a, temp_a->cost_b);
 		else if (temp_a->cost_a < 0 && temp_a->cost_b < 0)
@@ -261,13 +263,16 @@ void	finish_rotation(t_stack **stack_a, t_stack **stack_b,t_stack *cheapest_node
 
 t_stack *get_cheapest(t_stack *stack)
 {
-	while (stack)
-	{
-		if(stack->cheapest == 1)
-			return (stack);
-		stack = stack->next;
-	}
-	return(NULL);
+    t_stack *start = stack;
+    while (stack)
+    {
+        if (stack->cheapest == 1)
+            return (stack);
+        stack = stack->next;
+        if (stack == start)
+            break;
+    }
+    return (NULL);
 }
 
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
@@ -321,9 +326,9 @@ void	set_target_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		temp_a = temp_a->next;
 	}
 	if (best_index == INT_MAX)
-		temp_a->target_node = find_min_stack(*stack_a);
+		(*stack_b)->target_node = find_min_stack(*stack_a);
 	else
-		temp_a->target_node = target_node;
+		(*stack_b)->target_node = target_node;
 }
 
 
@@ -331,7 +336,7 @@ void	finish_rotation_only_a(t_stack **stack_a, t_stack *target_node)
 {
 	t_stack *temp = *stack_a;
 
-	while (temp->target_node != target_node)
+	while (*stack_a!= target_node)
 	{
 		if (target_node->above_median == 1)
 			ra(stack_a);
