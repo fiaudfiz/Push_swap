@@ -34,7 +34,7 @@ LIBFT_DIR = libft/
 LIBFT_LIB = $(LIBFT_DIR)libft.a
 
 SRCS_PUSH_SWAP = big_join.c ft_atoll.c parsing.c free.c \
-				rules.c instructions.c ft_display_stacks.c main.c
+				rules.c instructions.c ft_display_stacks.c main.c init_index.c sort_three.c utils.c
 
 ALL_SRCS = $(addprefix $(SRCS_DIR), $(SRCS_PUSH_SWAP))
 

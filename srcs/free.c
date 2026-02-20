@@ -13,18 +13,24 @@
 #include "push_swap.h"
 #include "../libft/includes/libft.h"
 
-void ft_free_stack(t_stack **stack)
+void	ft_free_stack(t_stack **stack)
 {
-    t_stack *tmp;
+	t_stack	*current;
+	t_stack	*next_node;
+	int		len;
 
-    if (!stack || !*stack)
-        return ;
-    while (*stack)
-    {
-        tmp = (*stack)->next;
-        free(*stack);
-        *stack = tmp;
-    }
+	if (!stack || !*stack)
+		return ;
+	len = stack_size(*stack);
+	current = *stack;
+	while (len > 0)
+	{
+		next_node = current->next;
+		free(current);
+		current = next_node;
+		len--;
+	}
+	*stack = NULL;
 }
 
 void ft_free_tab(char **tab)

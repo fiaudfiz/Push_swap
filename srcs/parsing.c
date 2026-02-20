@@ -47,10 +47,10 @@ int	ft_check_and_add(t_stack **stack_a, long nb, int* error)
 
 	if (check_double(*stack_a, nb) == -1)
 		return (*error = 1, 0);
-	new_node = ft_lstnew(nb);
+	new_node = ft_lstnew_stack(nb);
 	if (!new_node)
 		return (*error = 1, 0);
-	ft_lstadd_back(stack_a, new_node);
+	ft_lstadd_back_stack(stack_a, new_node);
 	return (0);
 }
 

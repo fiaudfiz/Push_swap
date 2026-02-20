@@ -13,18 +13,30 @@
 #include "push_swap.h"
 #include "../libft/includes/libft.h"
 
-void    ft_display_stacks(t_stack *stack_a, t_stack *stack_b)
+void	ft_display_stacks(t_stack *a, t_stack *b)
 {
-    ft_printf("-----STACK_A-----\n");
-    while (stack_a != NULL)
-    {
-        ft_printf ("%d\n", stack_a -> nbr);
-        stack_a = stack_a -> next;
-    }
-    ft_printf ("-----STACK_B-----\n");
-    while (stack_b != NULL)
-    {
-        ft_printf ("%d\n", stack_b -> nbr);
-        stack_b = stack_b -> next;
-    }
+	t_stack	*tmp;
+	int		size;
+
+	printf("\n--- DEBUG STACKS ---\n");
+	// Affichage Pile A
+	size = stack_size(a);
+	printf("Stack A: ");
+	tmp = a;
+	while (size-- > 0)
+	{
+		printf("[%ld] ", tmp->nbr);
+		tmp = tmp->next;
+	}
+	
+	// Affichage Pile B
+	size = stack_size(b);
+	printf("\nStack B: ");
+	tmp = b;
+	while (size-- > 0)
+	{
+		printf("[%ld] ", tmp->nbr);
+		tmp = tmp->next;
+	}
+	printf("\n--------------------\n\n");
 }

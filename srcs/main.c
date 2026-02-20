@@ -19,9 +19,8 @@ int main(int ac, char **av)
 	int	i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char *line;
 
-	if (ac <2)
+	if (ac <2 || (ac == 2 && !av[1][0]))
 		return (0);
 	stack_b = NULL;
 	stack_a = NULL;
@@ -29,46 +28,14 @@ int main(int ac, char **av)
 	if (i == -1)
 		return (write (2, "ERROR\n" , 6));
 	ft_display_stacks(stack_a, stack_b);
-	while ((line = get_next_line(0)))
+	if (!is_sorted(stack_a))
 	{
-		if (ft_strncmp(line, "sa\n", 3) == 0)
+		if (stack_size(stack_a) == 2)
 			sa(stack_a);
-		else if (ft_strncmp(line, "sb\n, 3", 3) == 0)
-			sb(stack_b);
-		else if (ft_strncmp(line, "ss\n, 3", 3) == 0)
-		{
-			sa(stack_a);
-			sb(stack_b);
-		}
-		else if (ft_strncmp(line, "pb\n", 3) == 0)
-            pb(&stack_a, &stack_b);
-        else if (ft_strncmp(line, "pa\n", 3) == 0)
-            pa(&stack_a, &stack_b);
-		else if (ft_strncmp(line, "ra\n", 3) == 0)
-			ra(&stack_a);
-		else if (ft_strncmp(line, "rb\n", 3) == 0)
-			rb(&stack_b);
-		else if (ft_strncmp(line, "rr\n", 3) == 0)
-		{
-			ra(&stack_a);
-			rb(&stack_b);
-		}
-		else if (ft_strncmp(line, "rra\n", 4) == 0)
-			rra(&stack_a);
-		else if (ft_strncmp(line, "rrb\n", 4) == 0)
-			rrb(&stack_b);
-		else if (ft_strncmp(line, "rrr\n", 4) == 0)
-		{
-			rra(&stack_a);
-			rrb(&stack_b);
-		}
-		else if (ft_strncmp(line, "exit\n", 5) == 0)
-        {
-            free(line);
-            break;
-        }
-        free(line);
-		ft_display_stacks(stack_a, stack_b);
+		else if (stack_size(stack_a) == 3)
+			sort_three(&stack_a);
+		else
+			sort_stacks(&stack_a, &stack_b);
 	}
 	ft_free_all(&stack_a, NULL);
 	ft_free_all(&stack_b, NULL);

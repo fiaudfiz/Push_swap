@@ -17,5 +17,5 @@ void	sort_three(t_stack **stack)
     b = (*stack)->next->index;
 
     if (a > b)
-        sa(stack);
+        sa(*stack);
 }

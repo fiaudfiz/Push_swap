@@ -21,8 +21,8 @@ void    push_to_stack(t_stack **src, t_stack **dest)
 
         if (!(*src))
             return ;
-        lst_size_src  = ft_lst_size(src);
-        lst_size_dest = ft_lst_size(dest);
+        lst_size_src  = stack_size(*src);
+        lst_size_dest = stack_size(*dest);
         temp = *src;
         if (lst_size_src > 1)
         {
@@ -63,4 +63,19 @@ void reverse_rotate(t_stack **src)
     if (!*src || (*src)->next == *src)
         return ;
     *src = (*src)->prev;
+}
+
+void	swap(t_stack *stack)
+{
+	long	tmp_nbr;
+	long	tmp_index;
+
+	if (!stack || stack->next == stack)
+		return ;
+	tmp_nbr = stack->nbr;
+	stack->nbr = stack->next->nbr;
+	stack->next->nbr = tmp_nbr;
+	tmp_index = stack->index;
+	stack->index = stack->next->index;
+	stack->next->index = tmp_index;
 }

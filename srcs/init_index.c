@@ -9,22 +9,22 @@ void	init_index(t_stack **stack_a)
 	t_stack	*check;
 
 	k = 0;
-	j = stack_size(stack);
+	j = stack_size(*stack_a);
 	i = 0;
 	while (i < j)
 	{
 		count = 0;
-		check = stack;
+		check = *stack_a;
 		k = 0;
 		while (k < j)
 		{
-			if (check->nbr < stack->nbr)
+			if (check->nbr < (*stack_a)->nbr)
 				count++;
 			check = check->next;
 			k++;	
 		}
-		stack->index = count;
-		stack = stack->next;
+		(*stack_a)->index = count;
+		*stack_a = (*stack_a)->next;
 		i++;
 	}
 }	
