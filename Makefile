@@ -6,7 +6,7 @@
 #    By: miouali <miouali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:56:33 by miouali           #+#    #+#              #
-#    Updated: 2026/02/21 15:02:47 by miouali          ###   ########.fr        #
+#    Updated: 2026/02/21 15:25:28 by miouali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIBFT_DIR = libft/
 LIBFT_LIB = $(LIBFT_DIR)libft.a
 
 SRCS_PUSH_SWAP = big_join.c ft_atoll.c parsing.c free.c \
-				rules.c instructions.c ft_display_stacks.c \
+				rules_0.c rules_1.c instructions.c ft_display_stacks.c \
 				main.c init_index.c sort_three.c utils_0.c \
 				utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c
 
