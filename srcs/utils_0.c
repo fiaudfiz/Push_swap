@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:12:53 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:48:00 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:26:32 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	set_cost(t_stack *stack_a, t_stack *stack_b)
 
 	temp_a = stack_a;
 	i = 0;
-	size_stack_b = stack_size(stack_a);
+	size_stack_a = stack_size(stack_a);
 	size_stack_b = stack_size(stack_b);
 	while (i < size_stack_a)
 	{
@@ -115,7 +115,7 @@ void	set_cheapest(t_stack *stack_a)
 	int		current_cost;
 	t_stack	*best_node;
 
-	size_stack = stack_size(stack_a);
+	size_stack_a = stack_size(stack_a);
 	i = 0;
 	lowest_cost = 0;
 	best_node = NULL;
