@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:13:14 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:23:37 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 14:36:59 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	min_on_top(t_stack **a)
 {
 	t_stack	*min_node;
-
 
 	if (!a || !*a)
 		return ;
@@ -48,7 +47,7 @@ void	init_nodes_b(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
-	int 	len_a;
+	int	len_a;
 
 	len_a = stack_size(*stack_a);
 	if (len_a-- > 3 && is_sorted(*stack_a) == 0)

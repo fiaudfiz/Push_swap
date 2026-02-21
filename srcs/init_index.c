@@ -6,7 +6,7 @@
 /*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:12:05 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:12:06 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:09:11 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_index(t_stack **stack_a)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	count;
+	int		i;
+	int		j;
+	int		k;
+	int		count;
 	t_stack	*check;
 
 	k = 0;

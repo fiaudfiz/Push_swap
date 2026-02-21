@@ -6,7 +6,7 @@
 /*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:12:45 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:12:47 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:18:03 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ void	sort_three(t_stack **stack)
 	b = (*stack)->next->index;
 	c = (*stack)->next->next->index;
 	if (a > b && a > c)
-        ra(stack);
-    else if (b > a && b > c)
-        rra(stack);
-    a = (*stack)->index;
-    b = (*stack)->next->index;
-
-    if (a > b)
-        sa(*stack);
+		ra(stack);
+	else if (b > a && b > c)
+		rra(stack);
+	a = (*stack)->index;
+	b = (*stack)->next->index;
+	if (a > b)
+		sa(*stack);
 }

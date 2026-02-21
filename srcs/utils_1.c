@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:12:59 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:15:45 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:13:21 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ t_stack	*ft_lstnew_stack(int nbr)
 	return (new);
 }
 
-int		stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
 
 	i = 0;
@@ -63,19 +63,24 @@ int		stack_size(t_stack *stack)
 		i++;
 		temp = temp->next;
 		if (temp == stack)
-			break;
+			break ;
 	}
 	return (i);
 }
 
-t_stack *find_max_stack(t_stack *stack)
+t_stack	*find_max_stack(t_stack *stack)
 {
-	t_stack *temp = stack;
-	int max = INT_MIN;
-	int	len = stack_size(stack);
-	int	i = 0;
-	t_stack *max_node = NULL;
+	t_stack	*temp;
+	int		max;
+	int		len;
+	int		i;
+	t_stack	*max_node;
 
+	temp = stack;
+	max = INT_MIN;
+	len = stack_size(stack);
+	i = 0;
+	max_node = NULL;
 	while (i < len)
 	{
 		if (temp->index > max)
@@ -87,17 +92,20 @@ t_stack *find_max_stack(t_stack *stack)
 		i++;
 	}
 	return (max_node);
-
 }
 
-t_stack *find_min_stack(t_stack *stack)
+t_stack	*find_min_stack(t_stack *stack)
 {
-	t_stack *temp = stack;
-	int min = INT_MAX;
-	int	len = stack_size(stack);
-	int	i = 0;
-	t_stack *min_node;
+	t_stack	*temp;
+	int		min;
+	int		len;
+	int		i;
+	t_stack	*min_node;
 
+	temp = stack;
+	min = INT_MAX;
+	len = stack_size(stack);
+	i = 0;
 	while (i < len)
 	{
 		if (temp->index < min)
@@ -109,5 +117,4 @@ t_stack *find_min_stack(t_stack *stack)
 		i++;
 	}
 	return (min_node);
-
 }

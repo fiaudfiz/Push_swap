@@ -1,22 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_4.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/21 14:56:38 by miouali           #+#    #+#             */
+/*   Updated: 2026/02/21 15:05:06 by miouali          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_stack *get_cheapest(t_stack *stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
-    t_stack *start = stack;
-    while (stack)
-    {
-        if (stack->cheapest == 1)
-            return (stack);
-        stack = stack->next;
-        if (stack == start)
-            break;
-    }
-    return (NULL);
+	t_stack	*start;
+
+	start = stack;
+	while (stack)
+	{
+		if (stack->cheapest == 1)
+			return (stack);
+		stack = stack->next;
+		if (stack == start)
+			break ;
+	}
+	return (NULL);
 }
 
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *cheapest_node;
+	t_stack	*cheapest_node;
 
 	cheapest_node = get_cheapest(*stack_a);
 	rotate_both(stack_a, stack_b, cheapest_node);
@@ -26,12 +40,16 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 
 void	set_target_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp_a = *stack_a;
-	t_stack *target_node;
-	int	best_index =INT_MAX;
-	int		size_stack_a = stack_size(*stack_a);
-	int	i = 0;
+	t_stack	*temp_a;
+	t_stack	*target_node;
+	int		best_index;
+	int		size_stack_a;
+	int		i;
 
+	size_stack_a = stack_size(*stack_a);
+	i = 0;
+	best_index = INT_MAX;
+	temp_a = *stack_a;
 	while (i < size_stack_a)
 	{
 		if (temp_a->index > (*stack_b)->index && temp_a->index < best_index)
@@ -48,12 +66,12 @@ void	set_target_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		(*stack_b)->target_node = target_node;
 }
 
-
 void	finish_rotation_only_a(t_stack **stack_a, t_stack *target_node)
 {
-	t_stack *temp = *stack_a;
+	t_stack	*temp;
 
-	while (*stack_a!= target_node)
+	temp = *stack_a;
+	while (*stack_a != target_node)
 	{
 		if (target_node->above_median == 1)
 			ra(stack_a);

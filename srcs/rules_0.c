@@ -1,50 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_2.c                                          :+:      :+:    :+:   */
+/*   rules_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/21 14:13:08 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:32:00 by miouali          ###   ########.fr       */
+/*   Created: 2026/01/19 10:31:42 by miouali           #+#    #+#             */
+/*   Updated: 2026/02/21 15:07:58 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	abs(int a)
+void	sa(t_stack *stack)
 {
-	if (a < 0)
-		return (-a);
-	return (a);
+	swap(stack);
+	write(1, "sa\n", 3);
 }
 
-int	max(int a, int b)
+void	sb(t_stack *stack)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	swap(stack);
+	write(1, "sb\n", 3);
 }
 
-int	max_abs(int a, int b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	if (abs(a) > abs(b))
-		return (abs(a));
-	return (abs(b));
+	push_to_stack(stack_b, stack_a);
+	write(1, "pa\n", 3);
 }
 
-int	is_sorted(t_stack *stack)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*temp;
-	int		size_stack;
+	push_to_stack(stack_a, stack_b);
+	write(1, "pb\n", 3);
+}
 
-	temp = stack;
-	size_stack = stack_size(stack);
-	while (--size_stack > 0)
-	{
-		if (temp->index > temp->next->index)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
+void	ra(t_stack  **stack_a)
+{
+	rotate(stack_a);
+	write(1, "ra\n", 3);
 }

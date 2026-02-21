@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 13:23:12 by miouali           #+#    #+#             */
-/*   Updated: 2026/01/16 13:24:22 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:14:55 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,25 @@ void	ft_free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!tab)
-        return ;
-    while (tab[i])
-    {
-        free(tab[i]);
-        i++;
-    }
-    free(tab);
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }
 
-void ft_free_all(t_stack **stack, char **tab)
+void	ft_free_all(t_stack **stack, char **tab)
 {
-    if (tab)
-        ft_free_tab(tab);
-    if (stack && *stack)
-        ft_free_stack(stack);
+	if (tab)
+		ft_free_tab(tab);
+	if (stack && *stack)
+		ft_free_stack(stack);
 }

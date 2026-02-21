@@ -6,19 +6,22 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:41:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:12:25 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 14:36:29 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/includes/libft.h"
 
-int check_double(t_stack *stack, int nb)
+int	check_double(t_stack *stack, int nb)
 {
-	t_stack *temp = stack;
-	int	i = 0;
-	int size_stack = stack_size(stack);
+	t_stack	*temp;
+	int		i;
+	int		size_stack;
 
+	i = 0;
+	temp = stack;
+	size_stack = stack_size(stack);
 	if (!stack)
 		return (0);
 	while (i < size_stack)
@@ -31,7 +34,7 @@ int check_double(t_stack *stack, int nb)
 	return (0);
 }
 
-char **join_and_split(char** av)
+char	**join_and_split(char **av)
 {
 	char	*tmp;
 	char	**dest;
@@ -46,7 +49,7 @@ char **join_and_split(char** av)
 	return (dest);
 }
 
-int	ft_check_and_add(t_stack **stack_a, long nb, int* error)
+int	ft_check_and_add(t_stack **stack_a, long nb, int *error)
 {
 	t_stack	*new_node;
 
@@ -59,12 +62,12 @@ int	ft_check_and_add(t_stack **stack_a, long nb, int* error)
 	return (0);
 }
 
-int parsing(char **av, t_stack **stack_a)
+int	parsing(char **av, t_stack **stack_a)
 {
 	char	**dest;
-	int 	i;
-	int 	error;
-	long		nb;
+	int		i;
+	int		error;
+	long	nb;
 
 	error = 0;
 	i = 0;

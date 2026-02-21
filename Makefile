@@ -6,7 +6,7 @@
 #    By: miouali <miouali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:56:33 by miouali           #+#    #+#              #
-#    Updated: 2026/02/21 14:27:07 by miouali          ###   ########.fr        #
+#    Updated: 2026/02/21 15:02:47 by miouali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,10 +106,12 @@ end_timer:
 
 clean:
 	$(RM) $(OBJS_DIR)
+	@make clean -C $(LIBFT_DIR)
 	@echo "$(PURPLE) Objects cleaned!$(DEF_COLOR)"
 
 fclean: clean
 		$(RM) $(NAME)
+		@make fclean -C $(LIBFT_DIR)
 		@echo "$(PURPLE) $(NAME) deleted!$(DEF_COLOR)"
 
 re: fclean all

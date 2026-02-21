@@ -6,7 +6,7 @@
 /*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:56:49 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:11:59 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 15:13:48 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_display_stacks(t_stack *a, t_stack *b)
 	int		size;
 
 	printf("\n--- DEBUG STACKS ---\n");
-	// Affichage Pile A
 	size = stack_size(a);
 	printf("Stack A: ");
 	tmp = a;
@@ -28,8 +27,6 @@ void	ft_display_stacks(t_stack *a, t_stack *b)
 		printf("[%ld] ", tmp->nbr);
 		tmp = tmp->next;
 	}
-
-	// Affichage Pile B
 	size = stack_size(b);
 	printf("\nStack B: ");
 	tmp = b;
