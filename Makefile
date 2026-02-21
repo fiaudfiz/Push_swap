@@ -6,7 +6,7 @@
 #    By: miouali <miouali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:56:33 by miouali           #+#    #+#              #
-#    Updated: 2026/01/16 13:25:46 by miouali          ###   ########.fr        #
+#    Updated: 2026/02/21 14:27:07 by miouali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET   = \033[0m
 
 ERR_LOG = .errors.log 
 
-CC = cc
+CC = clang
 CFLAGS = -O3 -Wall -Wextra -Werror -I includes -I libft/includes
 
 #Dossiers
@@ -34,7 +34,9 @@ LIBFT_DIR = libft/
 LIBFT_LIB = $(LIBFT_DIR)libft.a
 
 SRCS_PUSH_SWAP = big_join.c ft_atoll.c parsing.c free.c \
-				rules.c instructions.c ft_display_stacks.c main.c init_index.c sort_three.c utils.c
+				rules.c instructions.c ft_display_stacks.c \
+				main.c init_index.c sort_three.c utils_0.c \
+				utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c
 
 ALL_SRCS = $(addprefix $(SRCS_DIR), $(SRCS_PUSH_SWAP))
 

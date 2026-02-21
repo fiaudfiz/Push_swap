@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_index.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/21 14:12:05 by miouali           #+#    #+#             */
+/*   Updated: 2026/02/21 14:12:06 by miouali          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	init_index(t_stack **stack_a)
@@ -21,10 +33,10 @@ void	init_index(t_stack **stack_a)
 			if (check->nbr < (*stack_a)->nbr)
 				count++;
 			check = check->next;
-			k++;	
+			k++;
 		}
 		(*stack_a)->index = count;
 		*stack_a = (*stack_a)->next;
 		i++;
 	}
-}	
+}

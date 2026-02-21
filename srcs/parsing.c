@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:41:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/01/16 13:44:09 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 14:12:25 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int parsing(char **av, t_stack **stack_a)
 	int 	i;
 	int 	error;
 	long		nb;
-	
-	error = 0; 
+
+	error = 0;
 	i = 0;
 	dest = join_and_split(av);
 	if (!dest)

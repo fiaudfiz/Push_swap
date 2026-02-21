@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:20:41 by miouali           #+#    #+#             */
-/*   Updated: 2026/01/16 13:33:55 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/21 14:12:20 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ int main(int ac, char **av)
 	t_stack		*new_node;
 	t_stack *stack_a;
 	t_stack	*curr;
-	
+
 	i = 0;
 	stack_a = NULL;
 	nb  = 0;
 	ft_printf ("ac = %d\n", ac);
 	if (ac < 2)
 		return (0);
-	
+
 	dest = ft_strbigjoin(av);
 	if (!dest)
 	{
