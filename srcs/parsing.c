@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:41:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:36:29 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/22 09:35:05 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,23 @@ int	ft_check_and_add(t_stack **stack_a, long nb, int *error)
 	return (0);
 }
 
-int	parsing(char **av, t_stack **stack_a)
+int loop_parsing(char **dest, t_stack **stack_a, int *error)
 {
-	char	**dest;
-	int		i;
-	int		error;
-	long	nb;
+	int	nb;
+	int	i;
 
-	error = 0;
+	nb = 0;
 	i = 0;
-	dest = join_and_split(av);
-	if (!dest)
-	{
-		ft_free_all(stack_a, dest);
-		return (-1);
-	}
 	while (dest[i])
 	{
-		nb = ft_atoll(dest[i], &error);
-		if (error == 1)
+		nb = ft_atoll(dest[i], error);
+		if (*error == 1)
 		{
 			ft_free_all(stack_a, dest);
 			return (-1);
 		}
-		ft_check_and_add(stack_a, nb, &error);
-		if (error == 1)
+		ft_check_and_add(stack_a, nb, error);
+		if (*error == 1)
 		{
 			ft_free_all(stack_a, dest);
 			return (-1);
@@ -94,4 +86,21 @@ int	parsing(char **av, t_stack **stack_a)
 		i++;
 	}
 	return (0);
+}
+
+int	parsing(char **av, t_stack **stack_a)
+{
+	char	**dest;
+	int		error;
+
+	error = 0;
+	dest = join_and_split(av);
+	if (!dest)
+	{
+		ft_free_all(stack_a, dest);
+		return (-1);
+	}
+	if (loop_parsing(dest, stack_a, &error) == -1)
+		return (-1);
+	return(0);
 }

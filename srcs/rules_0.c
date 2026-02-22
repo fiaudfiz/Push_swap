@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:31:42 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 15:07:58 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/22 08:47:11 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	write(1, "pb\n", 3);
 }
 
-void	ra(t_stack  **stack_a)
+void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	write(1, "ra\n", 3);
