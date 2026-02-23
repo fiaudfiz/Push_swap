@@ -25,6 +25,7 @@ ERR_LOG = .errors.log
 
 CC = clang
 CFLAGS = -O3 -Wall -Wextra -Werror -I includes -I libft/includes
+DFLAGS = -fsanitize=address -fsanitize=undefined -g -Wshadow
 
 #Dossiers
 SRCS_DIR = srcs/
@@ -63,6 +64,14 @@ start_timer:
 bonus: $(LIBFT_LIB) $(OBJS_CHECKER)
 	@$(CC) $(CFLAGS) $(OBJS_CHECKER) $(LIBFT_LIB) -o $(CHECKER_NAME)
 	@echo "$(GREEN) checker is ready !$(DEF_COLOR)"
+
+debug: $(LIBFT_LIB) $(OBJS)
+	@$(CC) $(CFLAGS) $(DFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
+	@echo "$(GREEN) push_swap debug ready !$(DEF_COLOR)"
+
+debug_bonus: $(LIBFT_LIB) $(OBJS_CHECKER)
+	@$(CC) $(CFLAGS) $(DFLAGS) $(OBJS_CHECKER) $(LIBFT_LIB) -o $(CHECKER_NAME)
+	@echo "$(GREEN) checker debug ready !$(DEF_COLOR)"
 
 $(LIBFT_LIB):
 	@make -C $(LIBFT_DIR)
@@ -124,4 +133,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re debug_bonus debug

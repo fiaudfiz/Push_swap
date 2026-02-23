@@ -72,6 +72,5 @@ int	fetch_and_execute(char *line, t_stack **stack_a, t_stack **stack_b)
 		return (free(line), -1);
 	execute_instruction(line, stack_a, stack_b);
 	free(line);
-	line = get_next_line(0);
 	return (0);
 }

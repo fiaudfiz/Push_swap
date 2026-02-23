@@ -31,7 +31,12 @@ int	main(int ac, char **av)
 	while (line)
 	{
 		if (fetch_and_execute(line, &stack_a, &stack_b) == -1)
-			return (write(2, "ERROR\n", 6));
+        {
+			get_next_line(-1);
+            ft_free_stack(&stack_a);
+            ft_free_stack(&stack_b);
+            return (write(2, "ERROR\n", 6));
+        }
 		line = get_next_line(0);
 	}
 	get_next_line(-1);
