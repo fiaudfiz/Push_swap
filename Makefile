@@ -38,8 +38,9 @@ SRCS_PUSH_SWAP = big_join.c ft_atoll.c parsing.c free.c \
 				rules_0.c rules_1.c instructions.c ft_display_stacks.c \
 				main.c init_index.c sort_three.c utils_0.c \
 				utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c
-SRCS_CHECKER = main_bonus.c instructions_bonus.c parsing.c utils_2.c \
-             utils_1.c instructions.c ft_atoll.c big_join.c free.c init_index.c
+SRCS_CHECKER = main_bonus.c parsing.c utils_2.c \
+             utils_1.c ft_atoll.c big_join.c free.c init_index.c \
+			 utils_bonus_0.c instructions.c instructions_bonus_0.c instructions_bonus_1.c instructions_bonus_2.c
 
 ALL_SRCS = $(addprefix $(SRCS_DIR), $(SRCS_PUSH_SWAP))
 ALL_SRCS_CHECKER = $(addprefix $(SRCS_DIR), $(SRCS_CHECKER))
