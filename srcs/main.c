@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:20:41 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 18:35:05 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:40:29 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 	if (i == -1)
 		return (write (2, "ERROR\n", 6));
 	init_index(&stack_a);
-	ft_display_stacks(stack_a, stack_b);
 	if (!is_sorted(stack_a))
 	{
 		if (stack_size(stack_a) == 2)
@@ -37,7 +36,6 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
-	ft_display_stacks(stack_a, stack_b);
 	ft_free_all(&stack_a, NULL);
 	ft_free_all(&stack_b, NULL);
 	return (0);

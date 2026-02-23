@@ -58,15 +58,12 @@ void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 	{
 		init_nodes_a(*stack_a, *stack_b);
 		move_a_to_b(stack_a, stack_b);
-		ft_display_stacks(*stack_a, *stack_b);
 	}
 	sort_three(stack_a);
-	ft_display_stacks(*stack_a, *stack_b);
 	while (*stack_b)
 	{
 		init_nodes_b(*stack_a, *stack_b);
 		move_b_to_a(stack_a, stack_b);
-		ft_display_stacks(*stack_a, *stack_b);
 	}
 	set_position(*stack_a);
 	min_on_top(stack_a);

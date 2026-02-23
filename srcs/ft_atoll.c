@@ -23,10 +23,8 @@ int	ft_atoll(const char *str, int *error)
 	i = 0;
 	r = 0;
 	if (str[i] == '-' || str[i] == '+')
-	{
 		if (str[i++] == '-')
 			sign = -1;
-	}
 	if (!str[i])
 		return (*error = 1, 0);
 	while (str[i])

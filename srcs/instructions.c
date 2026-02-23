@@ -13,41 +13,38 @@
 #include "push_swap.h"
 #include "../libft/includes/libft.h"
 
+void	send_to_stack(t_stack **dest, t_stack *temp)
+{
+	temp->next = *dest;
+	temp->prev = (*dest)->prev;
+	(*dest)->prev->next = temp;
+	(*dest)->prev = temp;
+	*dest = temp;
+}
+
 void	push_to_stack(t_stack **src, t_stack **dest)
 {
 	t_stack		*temp;
-	int			lst_size_src;
-	int			lst_size_dest;
 
 	if (!(*src))
 		return ;
-	lst_size_src = stack_size(*src);
-	lst_size_dest = stack_size(*dest);
 	temp = *src;
-	if (lst_size_src > 1)
+	if (stack_size(*src) > 1)
 	{
 		(*src)->prev->next = (*src)-> next;
 		(*src)->next->prev = (*src)->prev;
 		*src = (*src)->next;
 	}
-	else if (lst_size_src == 1)
-	{
+	else if (stack_size(*src) == 1)
 		*src = NULL;
-	}
-	if (lst_size_dest == 0)
+	if (stack_size(*dest) == 0)
 	{
 		*dest = temp;
 		(*dest)->next = temp;
 		(*dest)->prev = temp;
 	}
 	else
-	{
-		temp->next = *dest;
-		temp->prev = (*dest)->prev;
-		(*dest)->prev->next = temp;
-		(*dest)->prev = temp;
-		*dest = temp;
-	}
+		send_to_stack(dest, temp);
 }
 
 void	rotate(t_stack **src)

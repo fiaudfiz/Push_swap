@@ -6,7 +6,7 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:41:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/22 09:35:05 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:21:56 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_check_and_add(t_stack **stack_a, long nb, int *error)
 	return (0);
 }
 
-int loop_parsing(char **dest, t_stack **stack_a, int *error)
+int	loop_parsing(char **dest, t_stack **stack_a, int *error)
 {
 	int	nb;
 	int	i;
@@ -102,5 +102,5 @@ int	parsing(char **av, t_stack **stack_a)
 	}
 	if (loop_parsing(dest, stack_a, &error) == -1)
 		return (-1);
-	return(0);
+	return (0);
 }
