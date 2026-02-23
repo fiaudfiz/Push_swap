@@ -85,6 +85,7 @@ int	loop_parsing(char **dest, t_stack **stack_a, int *error)
 		}
 		i++;
 	}
+	ft_free_str_tab(dest);
 	return (0);
 }
 

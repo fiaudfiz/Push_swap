@@ -36,6 +36,12 @@ int	main(int ac, char **av)
 	}
 	get_next_line(-1);
 	if (is_sorted(stack_a) == 0 || stack_size(stack_b) != 0)
+    {
+        ft_free_stack(&stack_a);
+        ft_free_stack(&stack_b);
 		return (write(1, "KO\n", 3));
+    }
+    ft_free_stack(&stack_a);
+    ft_free_stack(&stack_b);
 	return (write(1, "OK\n", 3));
 }

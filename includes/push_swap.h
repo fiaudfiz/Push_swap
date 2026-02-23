@@ -26,16 +26,16 @@
 
 typedef struct s_stack
 {
-	long			nbr;
-	long			index;
-	int				pos;
-	int				cost_a;
-	int				cost_b;
-	int				above_median;
-	int				cheapest;
-	struct s_stack	*target_node;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	long            nbr;
+	long            index;
+	struct s_stack  *target_node;
+	struct s_stack  *next;
+	struct s_stack  *prev;
+	int             pos;
+	int             cost_a;
+	int             cost_b;
+	int             above_median;
+	int             cheapest;
 }	t_stack;
 
 int		check_double(t_stack *stack, int nb);
