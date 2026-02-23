@@ -6,7 +6,7 @@
 /*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:02:09 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/23 17:18:14 by miouali          ###   ########.fr       */
+/*   Updated: 2026/02/23 20:37:51 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@ int	main(int ac, char **av)
 	while (line)
 	{
 		if (fetch_and_execute(line, &stack_a, &stack_b) == -1)
-        {
+		{
 			get_next_line(-1);
-            ft_free_stack(&stack_a);
-            ft_free_stack(&stack_b);
-            return (write(2, "ERROR\n", 6));
-        }
+			ft_free_stack(&stack_a);
+			ft_free_stack(&stack_b);
+			return (write(2, "ERROR\n", 6));
+		}
 		line = get_next_line(0);
 	}
 	get_next_line(-1);
 	if (is_sorted(stack_a) == 0 || stack_size(stack_b) != 0)
-    {
-        ft_free_stack(&stack_a);
-        ft_free_stack(&stack_b);
+	{
+		ft_free_stack(&stack_a);
+		ft_free_stack(&stack_b);
 		return (write(1, "KO\n", 3));
-    }
-    ft_free_stack(&stack_a);
-    ft_free_stack(&stack_b);
+	}
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 	return (write(1, "OK\n", 3));
 }
