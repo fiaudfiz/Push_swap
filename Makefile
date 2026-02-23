@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
+CHECKER_NAME = checker
 
 DEF_COLOR = \033[0;39m
 CYAN    = \033[0;96m
@@ -37,10 +38,14 @@ SRCS_PUSH_SWAP = big_join.c ft_atoll.c parsing.c free.c \
 				rules_0.c rules_1.c instructions.c ft_display_stacks.c \
 				main.c init_index.c sort_three.c utils_0.c \
 				utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c
+SRCS_CHECKER = main_bonus.c instructions_bonus.c parsing.c utils_2.c \
+             utils_1.c instructions.c ft_atoll.c big_join.c free.c init_index.c
 
 ALL_SRCS = $(addprefix $(SRCS_DIR), $(SRCS_PUSH_SWAP))
+ALL_SRCS_CHECKER = $(addprefix $(SRCS_DIR), $(SRCS_CHECKER))
 
 OBJS = $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(ALL_SRCS))
+OBJS_CHECKER = $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(ALL_SRCS_CHECKER))
 
 HEADER = $(HEADER_DIR)push_swap.h
 
@@ -53,6 +58,10 @@ header:
 
 start_timer:
 	$(eval START_TIME := $(shell date +%s))
+
+bonus: $(LIBFT_LIB) $(OBJS_CHECKER)
+	@$(CC) $(CFLAGS) $(OBJS_CHECKER) $(LIBFT_LIB) -o $(CHECKER_NAME)
+	@echo "$(GREEN) checker is ready !$(DEF_COLOR)"
 
 $(LIBFT_LIB):
 	@make -C $(LIBFT_DIR)
@@ -73,8 +82,7 @@ $(NAME): $(OBJS)
 		@echo "###         ########   ########  ###    ### ########## ########    ###   ###   ###     ### ###             $(DEF_COLOR)"
 		@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
 		@echo "\n\n$(GREEN) PUSH_SWAP is ready to be used !$(DEF_COLOR)"
-                                                                                         
-                                                                                        
+
 # Variables pour la barre
 TOTAL_FILES := $(words $(ALL_SRCS))
 CURRENT_FILE := 0
@@ -87,7 +95,6 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
 		"$(shell printf '#%.0s' $$(seq 1 $$(($(PERCENT) / 5))))" $(PERCENT)
 	@$(CC) $(CFLAGS) -c $< -o $@ 2> .temp_err || \
 		(printf "\n$(PURPLE)❌ Erreur dans $< :$(RESET)\n" && cat .temp_err >> $(ERR_LOG) && cat .temp_err && rm -f .temp_err)
-		
 
 end_timer:
 	@$(eval END_TIME := $(shell date +%s))
@@ -110,7 +117,7 @@ clean:
 	@echo "$(PURPLE) Objects cleaned!$(DEF_COLOR)"
 
 fclean: clean
-		$(RM) $(NAME)
+		$(RM) $(NAME) $(CHECKER_NAME)
 		@make fclean -C $(LIBFT_DIR)
 		@echo "$(PURPLE) $(NAME) deleted!$(DEF_COLOR)"
 
