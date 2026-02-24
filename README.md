@@ -76,3 +76,5 @@ Then, enter the commands manually and use Ctrl+D to send an EOF. The checker wil
 ##  Ressources
 
 * **The Turkish Algorithm**: [Push Swap — A journey to find most efficient sorting algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+
+*  **Double circular linked lists**: [Les listes circulaires doublement chainées en C](http://sdz.tdct.org/sdz/les-listes-circulaires-doublement-chainees-en-c.html)
