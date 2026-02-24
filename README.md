@@ -42,7 +42,7 @@ This project use a submodule you juste have to clone the repository recursively 
 git clone --recursive git@github.com:fiaudfiz/push_swap
 ```
 
-###  Compilation
+####    Compilation
 
 To compile mandatory part:
 ```bash
