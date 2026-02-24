@@ -5,7 +5,6 @@
 
 ##  Description
 
-
 This project is an algorithm designed to sort numbers in ascending order using two stacks and a limited set of instructions. The different instructions are as follows:
 
 | Command | Action |
@@ -17,7 +16,9 @@ This project is an algorithm designed to sort numbers in ascending order using t
 | **rr** | Execute `ra` and `rb` at the same time. |
 | **rra / rrb** | Shift down all elements of a stack by 1 (the last becomes the first). |
 | **rrr** | Execute `rra` and `rrb` at the same time. |
- 
+
+---
+
 ##  Project Structure
 
 The goal is to sort a list of numbers with the minimum number of instructions using stack_a and stack_b. This is why I chose to implement the Turkish Algo.
@@ -31,6 +32,8 @@ The project is divided into two parts:
     Mandatory: returns the instructions to sort stack_a.
 
     Bonus: a checker to verify if the stack is truly sorted after the mandatory part's execution.
+
+---
 
 ##  Instructions
 
@@ -50,9 +53,11 @@ to compile the bonus part (checker):
 make bonus
 ```
 
+---
+
 ##   Usage
 
-### Mandatory part 
+#### Mandatory part 
 Execute with numbers :
 ```bash
 ./push_swap 0 -23 534 1 243 12
@@ -62,7 +67,7 @@ or
 ./push_swap " 0 4532 1" "54 3" "3"
 ```
 
-### Bonus Part:
+#### Bonus Part:
 Execute checker with 2 differents way:
 ```bash
 ./push_swap 0 -23 534 1 243 12 | ./checker 0 -23 534 1 243 12
@@ -72,6 +77,8 @@ or
 ./checker 0 -23 534 1 243 12
 ```
 Then, enter the commands manually and use Ctrl+D to send an EOF. The checker will then verify if the stack is correctly sorted.
+
+---
 
 ##  Ressources
 
