@@ -34,7 +34,7 @@ The project is divided into two parts:
 
 ##  Instructions
 
-This project use a submodulem you juste have to clone the repository recursively to include the libft source code:
+This project use a submodule you juste have to clone the repository recursively to include the libft source code:
 ```bash
 git clone --recursive git@github.com:fiaudfiz/push_swap
 ```
