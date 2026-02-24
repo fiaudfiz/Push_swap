@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	*line;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -27,26 +26,13 @@ int	main(int ac, char **av)
 	if (i == -1)
 		return (write(2, "ERROR\n", 6));
 	init_index(&stack_a);
-	line = get_next_line(0);
-	while (line)
-	{
-		if (fetch_and_execute(line, &stack_a, &stack_b) == -1)
-		{
-			get_next_line(-1);
-			ft_free_stack(&stack_a);
-			ft_free_stack(&stack_b);
-			return (write(2, "ERROR\n", 6));
-		}
-		line = get_next_line(0);
-	}
-	get_next_line(-1);
+	if (read_and_execute(&stack_a, &stack_b) == -1)
+		return(write(2, "ERROR\n", 6));
 	if (is_sorted(stack_a) == 0 || stack_size(stack_b) != 0)
 	{
-		ft_free_stack(&stack_a);
-		ft_free_stack(&stack_b);
+		free_stacks(&stack_a, &stack_b);
 		return (write(1, "KO\n", 3));
 	}
-	ft_free_stack(&stack_a);
-	ft_free_stack(&stack_b);
+	free_stacks(&stack_a, &stack_b);
 	return (write(1, "OK\n", 3));
 }

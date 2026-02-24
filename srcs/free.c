@@ -55,3 +55,9 @@ void	ft_free_all(t_stack **stack, char **tab)
 	if (stack && *stack)
 		ft_free_stack(stack);
 }
+
+void	free_stacks(t_stack **a, t_stack **b)
+{
+	ft_free_stack(a);
+	ft_free_stack(b);
+}

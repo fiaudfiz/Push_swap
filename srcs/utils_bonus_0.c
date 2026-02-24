@@ -74,3 +74,22 @@ int	fetch_and_execute(char *line, t_stack **stack_a, t_stack **stack_b)
 	free(line);
 	return (0);
 }
+
+int	read_and_execute(t_stack **stack_a, t_stack **stack_b)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		if (fetch_and_execute(line, stack_a, stack_b) == -1)
+		{
+			get_next_line(-1);
+			free_stacks(stack_a, stack_b);
+			return (-1);
+		}
+		line = get_next_line(0);
+	}
+	get_next_line(-1);
+	return (0);
+}

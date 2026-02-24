@@ -37,6 +37,7 @@ int		parsing(char **av, t_stack **stack_a);
 
 //Memory Management
 void	ft_free_stack(t_stack **stack);
+void	free_stacks(t_stack **a, t_stack **b);
 
 //Linked List Management
 void	init_index(t_stack **stack_a);
@@ -66,6 +67,7 @@ void	rrr(t_stack **a, t_stack **b);
 void	execute_instruction(char *line, t_stack **stack_a, t_stack **stack_b);
 int		is_an_instruction(char *line);
 int		fetch_and_execute(char *line, t_stack **stack_a, t_stack **stack_b);
+int		read_and_execute(t_stack **stack_a, t_stack **stack_b);
 
 //Verification
 int		is_sorted(t_stack *stack);
