@@ -6,7 +6,7 @@
 ##  Description
 
 
-This project is an algorithm to sort some numbers in ascending order with the help of 2 stacks and a limited set of instructions.The differents instructions are these folowing : \
+This project is an algorithm designed to sort numbers in ascending order using two stacks and a limited set of instructions. The different instructions are as follows:
 
 | Command | Action |
 | :--- | :--- |
@@ -20,14 +20,17 @@ This project is an algorithm to sort some numbers in ascending order with the he
  
 ##  Project Structure
 
-The goal is to sort a list of numbers with the minimum of instructions from the stack_a and the stack_b.That's why my choice is to choose the Turkish Algo.
-The Turkish Algo is an algorithm to sort stacks whith circular linked lists and the principe is very simple: for each number, count the number of instructions to push in stack_b in decresending order.The minimum cost win and is send to stack_b.Stack_b is always sort in decresending order.Then, when we have only three element in stack_a, we sort them and then return the numbers in stack_b to stack_a, and the stack_a is sort in ascending order.
+The goal is to sort a list of numbers with the minimum number of instructions using stack_a and stack_b. This is why I chose to implement the Turkish Algo.
+
+The Turkish Algo is an algorithm designed to sort stacks using circular linked lists. The principle is simple: for each number, calculate the cost (number of instructions) required to push it into stack_b in descending order. The element with the minimum cost "wins" and is sent to stack_b. Stack_b is always kept sorted in descending order. Then, when only three elements remain in stack_a, they are sorted. Finally, the numbers in stack_b are returned to stack_a, and stack_a ends up sorted in ascending order.
 
 This repository includes a submodule for my personnal C library, [Libft](https://github.com/fiaudfiz/libft).
 
-The project is divided into 2 parts: \
-  -Mandatory: just return the instructions to sort stack_a.
-  -Bonus: A checker to verify if the stack is really sorted at the end of the mandatory.
+The project is divided into two parts:
+
+    Mandatory: returns the instructions to sort stack_a.
+
+    Bonus: a checker to verify if the stack is truly sorted after the mandatory part's execution.
 
 ##  Instructions
 
@@ -68,7 +71,7 @@ or
 ```bash
 ./checker 0 -23 534 1 243 12
 ```
-and then enter the command to execute them, and use Ctrl+D to send a EOF and the checker will check if the stack is correctly sorted.
+Then, enter the commands manually and use Ctrl+D to send an EOF. The checker will then verify if the stack is correctly sorted.
 
 ##  Ressources
 
