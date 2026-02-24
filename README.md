@@ -75,4 +75,4 @@ Then, enter the commands manually and use Ctrl+D to send an EOF. The checker wil
 
 ##  Ressources
 
-* **The Turkish Algorithm**: [Push Swap: Efficient sorting with Push_swap tutorial]((https://medium.com/@ayogun/push-swap-c1f5d2d41e97))
+* **The Turkish Algorithm**: [Push Swap: Efficient sorting with Push_swap](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
