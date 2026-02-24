@@ -5,19 +5,19 @@
 
 ##  Description
 
+
 This project is an algorithm to sort some numbers in ascending order with the help of 2 stacks and a limited set of instructions.The differents instructions are these folowing : \
-  -pa (push a number from stack_b to stack_a) \
-  -pb (push a number from stack_a to stack_b) \
-  -sa (swap the 2 first numbers from stack_a) \
-  -sb (swap the 2 first numbers from stack_b) \
-  -ss (make sa & sb in the same time)\
-  -ra (the first element of stack_a become the last) \
-  -rb (the first element of stack_b become the last \
-  -rr (make ra & rb in the same time)\
-  -rra (the  last element of stack_a become the first) \
-  -rrb (the  last element of stack_b become the first) \
-  -rrr (make rra & rrb in the same time)\
-  
+
+| Command | Action |
+| :--- | :--- |
+| **sa / sb** | Swap the first 2 elements at the top of stack A / B. |
+| **ss** | Execute `sa` and `sb` at the same time. |
+| **pa / pb** | Push the first element from one stack to the top of the other. |
+| **ra / rb** | Shift up all elements of a stack by 1 (the first becomes the last). |
+| **rr** | Execute `ra` and `rb` at the same time. |
+| **rra / rrb** | Shift down all elements of a stack by 1 (the last becomes the first). |
+| **rrr** | Execute `rra` and `rrb` at the same time. |
+ 
 ##  Project Structure
 
 The goal is to sort a list of numbers with the minimum of instructions from the stack_a and the stack_b.That's why my choice is to choose the Turkish Algo.
@@ -70,4 +70,5 @@ or
 ```
 and then enter the command to execute them, and use Ctrl+D to send a EOF and the checker will check if the stack is correctly sorted.
 
-##  Resources
+##  Ressources
+
