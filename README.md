@@ -52,7 +52,7 @@ make bonus
 
 ##   Usage
 
-Mandatory part \
+### Mandatory part 
 Execute with numbers :
 ```bash
 ./push_swap 0 -23 534 1 243 12
@@ -62,7 +62,7 @@ or
 ./push_swap " 0 4532 1" "54 3" "3"
 ```
 
-Bonus Part: \
+### Bonus Part:
 Execute checker with 2 differents way:
 ```bash
 ./push_swap 0 -23 534 1 243 12 | ./checker 0 -23 534 1 243 12
