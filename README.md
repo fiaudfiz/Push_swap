@@ -25,7 +25,49 @@ The Turkish Algo is an algorithm to sort stacks whith circular linked lists and 
 
 This repository includes a submodule for my personnal C library, [Libft](https://github.com/fiaudfiz/libft).
 
+The project is divided into 2 parts: \
+  -Mandatory: just return the instructions to sort stack_a.
+  -Bonus: A checker to verify if the stack is really sorted at the end of the mandatory.
+
 ##  Instructions
 
+This project use a submodulem you juste have to clone the repository recursively to include the libft source code:
+```bash
+git clone --recursive git@github.com:fiaudfiz/push_swap
+```
+
+###  Compilation
+
+To compile mandatory part:
+```bash
+make
+```
+to compile the bonus part (checker):
+```bash
+make bonus
+```
+
+##   Usage
+
+Mandatory part
+Execute with numbers :
+```bash
+./push_swap 0 -23 534 1 243 12
+```
+or 
+```bash
+./push_swap " 0 4532 1" "54 3" "3"
+```
+
+Bonus Part:
+Execute checker with 2 differents way:
+```bash
+./push_swap 0 -23 534 1 243 12 | ./checker 0 -23 534 1 243 12
+```
+or
+```bash
+./checker 0 -23 534 1 243 12
+```
+and then enter the command to execute them, and use Ctrl+D to send a EOF and the checker will check if the stack is correctly sorted.
 
 ##  Resources
