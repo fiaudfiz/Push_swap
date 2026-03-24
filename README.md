@@ -23,7 +23,7 @@ This project is an algorithm designed to sort numbers in ascending order using t
 
 The goal is to sort a list of numbers with the minimum number of instructions using stack_a and stack_b. This is why I chose to implement the Turkish Algo.
 
-The Turkish Algo is an algorithm designed to sort stacks using circular linked lists. The principle is simple: for each number, calculate the cost (number of instructions) required to push it into stack_b in descending order. The element with the minimum cost "wins" and is sent to stack_b. Stack_b is always kept sorted in descending order. Then, when only three elements remain in stack_a, they are sorted. Finally, the numbers in stack_b are returned to stack_a, and stack_a ends up sorted in ascending order.
+The Turkish Algo is an algorithm designed to sort stacks using [circular linked lists](https://github.com/fiaudfiz/Cours/blob/main/liste%20chainees/listes%20chainees.md). The principle is simple: for each number, calculate the cost (number of instructions) required to push it into stack_b in descending order. The element with the minimum cost "wins" and is sent to stack_b. Stack_b is always kept sorted in descending order. Then, when only three elements remain in stack_a, they are sorted. Finally, the numbers in stack_b are returned to stack_a, and stack_a ends up sorted in ascending order.
 
 This repository includes a submodule for my personnal C library, [Libft](https://github.com/fiaudfiz/libft).
 
