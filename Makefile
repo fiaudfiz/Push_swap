@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: miouali <miouali@student.42.fr>            +#+  +:+       +#+         #
+#    By: fiaudfiz <fiaudfiz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:56:33 by miouali           #+#    #+#              #
-#    Updated: 2026/02/21 15:25:28 by miouali          ###   ########.fr        #
+#    Updated: 2026/03/26 17:31:58 by fiaudfiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,42 +56,42 @@ RM = rm -rf
 all: $(LIBFT_LIB) header start_timer $(NAME) end_timer
 
 header:
-	@echo "$(YELLOW) Démarrage de la compilation de PUSH_SWAP...$(RESET)"
+	@printf "\n$(YELLOW) Démarrage de la compilation de PUSH_SWAP...$(RESET)"
 
 start_timer:
 	$(eval START_TIME := $(shell date +%s))
 
 bonus: $(LIBFT_LIB) $(OBJS_CHECKER)
 	@$(CC) $(CFLAGS) $(OBJS_CHECKER) $(LIBFT_LIB) -o $(CHECKER_NAME)
-	@echo "$(GREEN) checker is ready !$(DEF_COLOR)"
+	@printf "$(GREEN) checker is ready !$(DEF_COLOR)\n"
 
 debug: $(LIBFT_LIB) $(OBJS)
 	@$(CC) $(CFLAGS) $(DFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
-	@echo "$(GREEN) push_swap debug ready !$(DEF_COLOR)"
+	@printf "$(GREEN) push_swap debug ready !$(DEF_COLOR)\n"
 
 debug_bonus: $(LIBFT_LIB) $(OBJS_CHECKER)
 	@$(CC) $(CFLAGS) $(DFLAGS) $(OBJS_CHECKER) $(LIBFT_LIB) -o $(CHECKER_NAME)
-	@echo "$(GREEN) checker debug ready !$(DEF_COLOR)"
+	@printf "$(GREEN) checker debug ready !$(DEF_COLOR)\n"
 
 $(LIBFT_LIB):
 	@make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS)
-		@echo "\n\n$(CYAN)      :::::::::  :::    :::  ::::::::  :::    :::            ::::::::  :::       :::     :::     ::::::::: "  
+		@printf "\n\n$(CYAN)      :::::::::  :::    :::  ::::::::  :::    :::            ::::::::  :::       :::     :::     ::::::::: \n"  
 		@sleep 0.1
-		@echo '     :+:    :+: :+:    :+: :+:    :+: :+:    :+:           :+:    :+: :+:       :+:   :+: :+:   :+:    :+: ' 
+		@printf "     :+:    :+: :+:    :+: :+:    :+: :+:    :+:           :+:    :+: :+:       :+:   :+: :+:   :+:    :+: \n"
 		@sleep 0.1
-		@echo '    +:+    +:+ +:+    +:+ +:+        +:+    +:+           +:+        +:+       +:+  +:+   +:+  +:+    +:+  '
+		@printf "    +:+    +:+ +:+    +:+ +:+        +:+    +:+           +:+        +:+       +:+  +:+   +:+  +:+    +:+  \n"
 		@sleep 0.1
-		@echo '   +#++:++#+  +#+    +:+ +#++:++#++ +#++:++#++           +#++:++#++ +#+  +:+  +#+ +#++:++#++: +#++:++#+    '
+		@printf "   +#++:++#+  +#+    +:+ +#++:++#++ +#++:++#++           +#++:++#++ +#+  +:+  +#+ +#++:++#++: +#++:++#+    \n"
 		@sleep 0.1
-		@echo '  +#+        +#+    +#+        +#+ +#+    +#+                  +#+ +#+ +#+#+ +#+ +#+     +#+ +#+           '
+		@printf "  +#+        +#+    +#+        +#+ +#+    +#+                  +#+ +#+ +#+#+ +#+ +#+     +#+ +#+           \n"
 		@sleep 0.1
-		@echo ' #+#        #+#    #+# #+#    #+# #+#    #+#           #+#    #+#  #+#+# #+#+#  #+#     #+# #+#            '      
+		@printf " #+#        #+#    #+# #+#    #+# #+#    #+#           #+#    #+#  #+#+# #+#+#  #+#     #+# #+#            \n"      
 		@sleep 0.1
-		@echo "###         ########   ########  ###    ### ########## ########    ###   ###   ###     ### ###             $(DEF_COLOR)"
+		@printf "###         ########   ########  ###    ### ########## ########    ###   ###   ###     ### ###             $(DEF_COLOR)\n"
 		@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
-		@echo "\n\n$(GREEN) PUSH_SWAP is ready to be used !$(DEF_COLOR)"
+		@printf "\n\n$(GREEN) PUSH_SWAP is ready to be used !$(DEF_COLOR)\n"
 
 # Variables pour la barre
 TOTAL_FILES := $(words $(ALL_SRCS))
@@ -99,8 +99,8 @@ CURRENT_FILE := 0
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
 	@mkdir -p $(dir $@)
-	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
-	@$(eval PERCENT=$(shell echo $$(($(CURRENT_FILE) * 100 / $(TOTAL_FILES)))))
+	@$(eval CURRENT_FILE=$(shell printf $$(($(CURRENT_FILE) + 1))))
+	@$(eval PERCENT=$(shell printf $$(($(CURRENT_FILE) * 100 / $(TOTAL_FILES)))))
 	@printf "\r$(CYAN)🛠️  Compiling PUSH_SWAP... [%-20s] %d%%" \
 		"$(shell printf '#%.0s' $$(seq 1 $$(($(PERCENT) / 5))))" $(PERCENT)
 	@$(CC) $(CFLAGS) -c $< -o $@ 2> .temp_err || \
@@ -108,28 +108,28 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
 
 end_timer:
 	@$(eval END_TIME := $(shell date +%s))
-	@$(eval DURATION := $(shell echo $$(($(END_TIME) - $(START_TIME)))))
-	@$(eval ERRORS := $(shell if [ -f $(ERR_LOG) ]; then grep -c "error:" $(ERR_LOG); else echo 0; fi))
-	@echo "\n--------------------------------------------------"
+	@$(eval DURATION := $(shell printf $$(($(END_TIME) - $(START_TIME)))))
+	@$(eval ERRORS := $(shell if [ -f $(ERR_LOG) ]; then grep -c "error:" $(ERR_LOG); else printf 0; fi))
+	@printf "\n%s\n" "--------------------------------------------------"
 	@if [ $(ERRORS) -eq 0 ]; then \
-		echo "$(GREEN)✅ COMPILATION TERMINÉE !$(RESET)"; \
+		printf "$(GREEN)✅ COMPILATION TERMINÉE !$(RESET)\n"; \
 	else \
-		echo "$(RED)❌ COMPILATION TERMINÉE AVEC DES ERREURS$(RESET)"; \
+		printf "$(RED)❌ COMPILATION TERMINÉE AVEC DES ERREURS$(RESET)\n"; \
 	fi
-	@echo "Temps écoulé : $(DURATION) secondes"
-	@echo "  Nombre d'erreurs : $(ERRORS)"
-	@echo "--------------------------------------------------"
+	@printf "Temps écoulé : $(DURATION) secondes\n"
+	@printf "  Nombre d'erreurs : $(ERRORS)\n"
+	@printf "%s\n" "--------------------------------------------------"
 	@rm -f $(ERR_LOG)
 
 clean:
 	$(RM) $(OBJS_DIR)
 	@make clean -C $(LIBFT_DIR)
-	@echo "$(PURPLE) Objects cleaned!$(DEF_COLOR)"
+	@printf "$(PURPLE) Objects cleaned!$(DEF_COLOR)\n"
 
 fclean: clean
 		$(RM) $(NAME) $(CHECKER_NAME)
 		@make fclean -C $(LIBFT_DIR)
-		@echo "$(PURPLE) $(NAME) deleted!$(DEF_COLOR)"
+		@printf "$(PURPLE) $(NAME) deleted!$(DEF_COLOR)\n"
 
 re: fclean all
 
