@@ -6,12 +6,13 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:41:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/23 11:21:56 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:22:34 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/includes/libft.h"
+#include "ft_strings.h"
+#include "ft_stdlib.h"
 
 int	check_double(t_stack *stack, int nb)
 {

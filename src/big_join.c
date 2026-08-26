@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   big_join.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 14:11:37 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/23 12:01:59 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:20:25 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/includes/libft.h"
+#include "ft_strings.h"
 
 int	checker(char *str)
 {

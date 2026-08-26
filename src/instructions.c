@@ -6,12 +6,11 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:20:33 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:55:17 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:21:28 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/includes/libft.h"
 
 void	send_to_stack(t_stack **dest, t_stack *temp)
 {

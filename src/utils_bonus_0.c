@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus_0.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:19:59 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/24 11:50:28 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:27:55 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include "ft_strings.h"
+#include "gnl.h"
 
 int	is_an_instruction(char *line)
 {
@@ -78,18 +80,19 @@ int	fetch_and_execute(char *line, t_stack **stack_a, t_stack **stack_b)
 int	read_and_execute(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*line;
+	int 	interruped;
 
-	line = get_next_line(0);
+	line = gnl(0, &interruped);
 	while (line)
 	{
 		if (fetch_and_execute(line, stack_a, stack_b) == -1)
 		{
-			get_next_line(-1);
+			gnl_reset();
 			free_stacks(stack_a, stack_b);
 			return (-1);
 		}
-		line = get_next_line(0);
+		line = gnl(0, &interruped);
 	}
-	get_next_line(-1);
+	gnl_reset();
 	return (0);
 }

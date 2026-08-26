@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 15:20:41 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/23 11:40:29 by miouali          ###   ########.fr       */
+/*   Created: 2026/02/23 17:02:09 by miouali           #+#    #+#             */
+/*   Updated: 2026/08/26 14:27:27 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "../libft/includes/libft.h"
+#include "checker_bonus.h"
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
@@ -19,24 +19,21 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (0);
-	stack_b = NULL;
-	stack_a = NULL;
-	i = parsing (av, &stack_a);
+	i = parsing(av, &stack_a);
 	if (i == -1)
-		return (write (2, "ERROR\n", 6));
+		return (write(2, "ERROR\n", 6));
 	init_index(&stack_a);
-	if (!is_sorted(stack_a))
+	if (read_and_execute(&stack_a, &stack_b) == -1)
+		return (write(2, "ERROR\n", 6));
+	if (is_sorted(stack_a) == 0 || stack_size(stack_b) != 0)
 	{
-		if (stack_size(stack_a) == 2)
-			sa(stack_a);
-		else if (stack_size(stack_a) == 3)
-			sort_three(&stack_a);
-		else
-			sort_stacks(&stack_a, &stack_b);
+		free_stacks(&stack_a, &stack_b);
+		return (write(1, "KO\n", 3));
 	}
-	ft_free_all(&stack_a, NULL);
-	ft_free_all(&stack_b, NULL);
-	return (0);
+	free_stacks(&stack_a, &stack_b);
+	return (write(1, "OK\n", 3));
 }

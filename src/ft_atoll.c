@@ -6,12 +6,11 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 10:25:49 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 14:32:53 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:26:16 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/includes/libft.h"
 
 int	ft_atoll(const char *str, int *error)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display_stacks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miouali <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:56:49 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/21 15:13:48 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:21:07 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/includes/libft.h"
+#include "ft_printf.h"
 
 void	ft_display_stacks(t_stack *a, t_stack *b)
 {
