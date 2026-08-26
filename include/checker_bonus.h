@@ -6,14 +6,12 @@
 /*   By: miouali <miouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:23:01 by miouali           #+#    #+#             */
-/*   Updated: 2026/02/23 21:01:32 by miouali          ###   ########.fr       */
+/*   Updated: 2026/08/26 14:26:53 by miouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
-
-# include "../libft/includes/libft.h"
 
 typedef struct s_stack
 {
